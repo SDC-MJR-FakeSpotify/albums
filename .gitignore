@@ -92,3 +92,6 @@ Thumbs.db
 
 # Generated Data Files
 *.csv
+
+#Files w/  keys & Licenses
+/newrelic.js
