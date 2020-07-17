@@ -1,4 +1,4 @@
-const { Sequelize, DataTypes } = require('Sequelize');
+const { Sequelize, DataTypes } = require('sequelize');
 
 // const sequelize = new Sequelize('postgres://localhost:5432/sdc'); Add dns to instance
 const sequelize = new Sequelize('sdc', 'robinlifshitz', '', {
