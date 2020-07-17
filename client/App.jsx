@@ -17,7 +17,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      artist: '5eebdbf1bf2d490c13ff868d', // this is hardcoded but I should pull this state down from the url
+      artist: '10000', // this is hardcoded but I should pull this state down from the url
       // artist: '5eebe7b2c451ef0e3f4c04f4', // another artist to use but this is has fewer albums
       albums: [], // set this initally to an empty array, represents the albums written by the artist
       features: [], // set to an empty array initially, represents the ablums that the artist appears on
@@ -45,6 +45,7 @@ class App extends React.Component {
       .then((data) => {
         this.setState({
           albums: data,
+          isLoaded: true,
         });
       })
       .catch((err) => {

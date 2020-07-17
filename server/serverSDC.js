@@ -40,7 +40,7 @@ app.get('/songs/:id', (req, res) => {
   Song.findAll({
     where: {
       artist_id: 5000,
-      album_id: 1,
+
 
     },
   })
@@ -48,5 +48,5 @@ app.get('/songs/:id', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log("server running on port 3000")
+  console.log("server running on port 3273")
 });

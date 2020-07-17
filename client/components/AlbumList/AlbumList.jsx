@@ -67,19 +67,19 @@ class AlbumList extends React.Component {
       albumsOfType = this.props.albums;
     } else if (this.state.type === 'Albums') {
       for (var album of this.props.albums) {
-        if (album.type === 'album') {
+        if (album.type == 'Country' || album.type == 'Pop' || album.type === 'Rock' || album.type === null) {
           albumsOfType.push(album);
         }
       }
     } else if (this.state.type === 'Singles and EPs') {
       for (var album of this.props.albums) {
-        if (album.type === 'single' || album.type === 'EP') {
+        if (album.type == 'Electronic' || album.type == 'Metal') {
           albumsOfType.push(album);
         }
       }
     } else {
       for (var album of this.props.albums) {
-        if (album.type === 'compilation') {
+        if (album.type === 'Rock' || album.type === null) {
           albumsOfType.push(album);
         }
       }

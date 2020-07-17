@@ -64,7 +64,7 @@ class Album extends React.Component {
     this.myRef = React.createRef();
     this.state = {
       playing: false, // tracking if the album is currently playing
-      buttonUrls: ['https://fakespotify.s3-us-west-1.amazonaws.com/play-button-2.png', 'https://fakespotify.s3-us-west-1.amazonaws.com/pause-button-try-3.png'], // array of the play and puase button images from my S3
+      buttonUrls: ['https://fakeimg.pl/600x600/?text=Play&font=lobster', 'https://fakeimg.pl/600x600/?text=Pause&font=lobster'], // array of the play and puase button images from my S3
       // buttonUrls: ['https://www.pngfind.com/pngs/m/427-4277341_add-play-button-to-image-online-overlay-play.png', 'https://tinyurl.com/ybdhlhsl'], // array of play and pause button images not through S3, doesn't look like spotify but it won't charge me, uncomment this and comment the line above for SDC bc those images won't be available
       // functionality remains intact
       // list of links to my play and pause icons
@@ -80,7 +80,7 @@ class Album extends React.Component {
   }
 
   componentDidMount() {
-    this.getSongs(this.props.album._id);
+    this.getSongs(this.props.album.album_id);
     // upon loading the component it gets the list of mp3 and sets them in state
     window.addEventListener('resize', this.updateSizing);
     // fills the albums to the window as the size changes
@@ -226,7 +226,7 @@ class Album extends React.Component {
       return (
         <AlbumWrapper ref="albumwrapper" className="album" id={this.props.id}>
           <AlbumCoverWrapper ref="albumcoverwrapper" id="album-cover-wrapper">
-            <AlbumCover ref="albumcover" id="album-cover" src={this.props.album.imageUrl} alt="" />
+            <AlbumCover ref="albumcover" id="album-cover" src={this.props.album.image_url} alt="" />
             <PlayButton ref="playbutton" id="play-button" src={this.state.buttonUrls[this.state.buttonIndex]} alt="" onClick={this.play} />
           </AlbumCoverWrapper>
           <AlbumTitle id="album-title">
