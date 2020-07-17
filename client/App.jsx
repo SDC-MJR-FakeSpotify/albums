@@ -25,14 +25,14 @@ class App extends React.Component {
       playing: '', // need to know which album is playing so all other albums can be set to stop playing
     };
     this.getAlbums = this.getAlbums.bind(this);
-    this.getFeatures = this.getFeatures.bind(this);
+    // this.getFeatures = this.getFeatures.bind(this);
     this.playing = this.playing.bind(this);
     // this.updateAudio = this.updateAudio.bind(this);
   }
 
   componentDidMount() {
     this.getAlbums(this.state.artist);
-    this.getFeatures(this.state.artist);
+    // this.getFeatures(this.state.artist);
     // upon loading the app, we grab the albums and features of this artist and store them in the state
   }
 
@@ -52,22 +52,22 @@ class App extends React.Component {
       });
   }
 
-  getFeatures(artist) {
-    const url = `http://localhost:3273/albums/features/${artist}`;
-    // calling a get request to pull down all the albums in the db whose featuredArtists array contains the artist
-    // this only pulls down the albums that the artist appears on
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        this.setState({
-          features: data,
-          isLoaded: true,
-        });
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }
+  // getFeatures(artist) {
+  //   const url = `http://localhost:3273/albums/${artist}`;
+  //   // calling a get request to pull down all the albums in the db whose featuredArtists array contains the artist
+  //   // this only pulls down the albums that the artist appears on
+  //   fetch(url)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       this.setState({
+  //         features: data,
+  //         isLoaded: true,
+  //       });
+  //     })
+  //     .catch((err) => {
+  //       console.error(err);
+  //     });
+  // }
 
   playing(album) {
     // this method will be passed as a prop to the lower components so they can change this global state
@@ -84,7 +84,7 @@ class App extends React.Component {
           <AlbumList type="Albums" albums={this.state.albums} playing={this.playing} currPlaying={this.state.playing} />
           <AlbumList type="Singles and EPs" albums={this.state.albums} playing={this.playing} currPlaying={this.state.playing} />
           <AlbumList type="Compilations" albums={this.state.albums} playing={this.playing} currPlaying={this.state.playing} />
-          <AlbumList type="Appears On" albums={this.state.features} playing={this.playing} currPlaying={this.state.playing} />
+          {/* <AlbumList type="Appears On" albums={this.state.features} playing={this.playing} currPlaying={this.state.playing} /> */}
         </MainAlbumsWrapper>
       );
     }

@@ -116,7 +116,7 @@ class Album extends React.Component {
   }
 
   getSongs(album) {
-    const url = `http://localhost:3273/songs/byAlbum/${album}`;
+    const url = `http://localhost:3273/songs/${album}`;
     fetch(url) // fetches the list of mp3s for the given album
       .then((response) => response.json())
       .then((data) => {
