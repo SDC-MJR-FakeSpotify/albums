@@ -126,7 +126,7 @@ class Album extends React.Component {
       })
       .then(() => {
         this.setState({
-          audio: new Audio(this.state.audioList[this.state.currSongIndex]),
+          audio: new Audio(this.state.audioList[0]),
         });
         this.state.audio.addEventListener('ended', () => {
           this.playNext(); // add event listener to the audio that plays the next song once it ends
