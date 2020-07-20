@@ -41,64 +41,64 @@ const csvWriterSong = createCsvWriter({
   ]
 });
 
-const getGenre = () => {
-  const genres = ["Pop", "Rock", "Country", "Electronic", "Classical", "Metal"]
-  const ran = Math.floor(Math.random() * 7);
+// const getGenre = () => {
+//   const genres = ["Pop", "Rock", "Country", "Electronic", "Classical", "Metal"]
+//   const ran = Math.floor(Math.random() * 7);
 
-  return genres[ran] || null;
-};
+//   return genres[ran] || null;
+// };
 
-const generateData = async () => {
-  const artists = [];// 200k
-  const albums = [];// 800k
-  const songs = [];// 9m
+// const generateData = async () => {
+//   const artists = [];// 200k
+//   const albums = [];// 800k
+//   const songs = [];// 9m
 
-  for (let i = 0; i < 200000; i++) {
-    const artistObj = {
-      artist_id: i,
-      name: faker.name.firstName(),
-      bio: faker.lorem.sentence(),
-      image_url: faker.internet.url(),
-      unique_id: uniqid(),
-    };
-    for (let j = 0; j < 4; j++) {
-      const albumObj = {
-        album_id: j,
-        title: faker.lorem.words(),
-        type: getGenre(),
-        image_url: faker.internet.url(),
-        artist_id: artistObj.artist_id,
-      };
-      albums.push(albumObj);
+//   for (let i = 0; i < 200000; i++) {
+//     const artistObj = {
+//       artist_id: i,
+//       name: faker.name.firstName(),
+//       bio: faker.lorem.sentence(),
+//       image_url: faker.internet.url(),
+//       unique_id: uniqid(),
+//     };
+//     for (let j = 0; j < 4; j++) {
+//       const albumObj = {
+//         album_id: j,
+//         title: faker.lorem.words(),
+//         type: getGenre(),
+//         image_url: faker.internet.url(),
+//         artist_id: artistObj.artist_id,
+//       };
+//       albums.push(albumObj);
 
-      for (let k = 0; k < 2; k++) {
-        const songsObj = {
-          title: faker.lorem.words(),
-          album_id: albumObj.album_id,
-          type: albumObj.type,
-          featured_artists: null,
-          image_url: albumObj.image_url,
-          mp3_url: faker.internet.url(),
-          duration: faker.random.number(),
-          listens: faker.random.number(),
-          explicit: faker.random.boolean(),
-          artist_id: artistObj.artist_id,
-        };
+//       for (let k = 0; k < 2; k++) {
+//         const songsObj = {
+//           title: faker.lorem.words(),
+//           album_id: albumObj.album_id,
+//           type: albumObj.type,
+//           featured_artists: null,
+//           image_url: albumObj.image_url,
+//           mp3_url: faker.internet.url(),
+//           duration: faker.random.number(),
+//           listens: faker.random.number(),
+//           explicit: faker.random.boolean(),
+//           artist_id: artistObj.artist_id,
+//         };
 
-        songs.push(songsObj);
-      }
-    }
-    artists.push(artistObj);
-  }
+//         songs.push(songsObj);
+//       }
+//     }
+//     artists.push(artistObj);
+//   }
 
-  await csvWriterArtist.writeRecords(artists)
-    .then(() => console.log('Artists Created'));
+//   await csvWriterArtist.writeRecords(artists)
+//     .then(() => console.log('Artists Created'));
 
-  await csvWriterAlbum.writeRecords(albums)
-    .then(() => console.log('Albums Created'));
+//   await csvWriterAlbum.writeRecords(albums)
+//     .then(() => console.log('Albums Created'));
 
-  await csvWriterSong.writeRecords(songs)
-    .then(() => console.log('Songs Created'));
-};
+//   await csvWriterSong.writeRecords(songs)
+//     .then(() => console.log('Songs Created'));
+// };
 
 module.exports = generateData;
