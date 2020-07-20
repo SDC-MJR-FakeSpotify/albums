@@ -1,9 +1,11 @@
 require('newrelic');
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 //import seq instance from db
 const { sequelize, DataTypes } = require('../database/dbSDC.js');
 const { Op } = require("sequelize")
+
 
 //importing models using sequelize-auto
 const Artist = require("../database/models/artists.js")(sequelize, DataTypes);
@@ -12,6 +14,8 @@ const Song = require("../database/models/songs.js")(sequelize, DataTypes);
 
 const port = 3273;
 const app = express();
+
+app.use(cors());
 app.use(express.static('public'));
 
 
