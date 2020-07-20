@@ -51,6 +51,10 @@ app.get('/songs/:id', (req, res) => {
   .then(songs => res.send(songs[0].mp3_url));
 });
 
+app.get('/loaderio-5bbec141bfe630519f23a5cdf08aad7b', (req, res) => {
+  res.send('loaderio-5bbec141bfe630519f23a5cdf08aad7b');
+});
+
 app.listen(port, () => {
   console.log("server running on port 3273")
 });
