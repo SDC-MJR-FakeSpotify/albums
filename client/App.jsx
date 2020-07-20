@@ -37,7 +37,7 @@ class App extends React.Component {
   }
 
   getAlbums(artist) {
-    const url = `http://localhost:3273/albums/${artist}`;
+    const url = `http://ec2-13-57-30-190.us-west-1.compute.amazonaws.com/albums/${artist}`;
     // calling a get request to pull down all the albums in the db that matches the artist
     // this only pulls down the albums that the artist is the primary artist for, not appears on
     fetch(url)
