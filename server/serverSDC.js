@@ -25,7 +25,7 @@ app.use(bodyParser.json());
 app.get('/artists', (req, res) => {
   Artist.findAll({
     where: {
-      artists_id: 190000,
+      artists_id: 100000,
     }
   })
   .then(artist => res.send(artist));
@@ -44,8 +44,6 @@ app.get('/songs/:id', (req, res) => {
   Song.findAll({
     where: {
       artist_id: 5000,
-
-
     },
   })
   .then(songs => res.send(songs[0].mp3_url));
