@@ -1,4 +1,4 @@
-require('newrelic');
+// require('newrelic');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -23,35 +23,38 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 
 app.get('/artists', (req, res) => {
+  let random = Math.floor(Math.random() * 199999);
   Artist.findAll({
     where: {
-      artists_id: 100000,
+      artists_id: random,
     }
   })
   .then(artist => res.send(artist));
 });
 
 app.get('/albums/:artistId', (req, res) => {
+  let random = Math.floor(Math.random() * 199999);
   Album.findAll({
     where: {
-      artist_id: 190000,
+      artist_id: random,
     },
   })
-  .then(album => res.send(album));
+  .then(album => res.send([album]));
 });
 
 app.get('/songs/:id', (req, res) => {
+  let random = Math.floor(Math.random() * 199999);
   Song.findAll({
     where: {
-      artist_id: 5000,
+      artist_id: random,
     },
   })
-  .then(songs => res.send(songs[0].mp3_url));
+  .then(songs => res.send(songs));
 });
 
-app.get('/loaderio-5bbec141bfe630519f23a5cdf08aad7b', (req, res) => {
-  res.send('loaderio-5bbec141bfe630519f23a5cdf08aad7b');
-});
+// app.get('/loaderio-5bbec141bfe630519f23a5cdf08aad7b', (req, res) => {
+//   res.send('loaderio-5bbec141bfe630519f23a5cdf08aad7b');
+// });
 
 app.listen(port, () => {
   console.log("server running on port 3273")
